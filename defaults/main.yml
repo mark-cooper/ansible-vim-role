@@ -1,0 +1,15 @@
+---
+
+vim_vundle_url: https://github.com/gmarik/Vundle.vim.git
+vim_powerline_fonts_url: https://github.com/scotu/ubuntu-mono-powerline.git
+
+vim_plugins:
+  - gmarik/Vundle.vim
+  - Valloric/YouCompleteMe
+  - bling/vim-airline
+  - scrooloose/syntastic
+  - scrooloose/nerdtree
+  - kien/ctrlp.vim
+  - tpope/vim-fugitive
+  - tomasr/molokai
+

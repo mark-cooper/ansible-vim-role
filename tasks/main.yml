@@ -1,0 +1,51 @@
+---
+
+- name: install vim and related packages
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - build-essential
+    - cmake
+    - python-dev
+    - vim
+  tags: vim
+
+- name: create the vim user and fonts directory
+  file:
+    path: "{{ item }}"
+    state: directory
+    recurse: yes
+  with_items:
+    - "~/.vim/bundle"
+    - "~/.fonts"
+  tags: vim
+
+- name: download vundle and powerline fonts
+  git:
+    repo: "{{ vim_vundle_url }}"
+    dest: "~/.vim/bundle/Vundle.vim"
+    accept_hostkey: yes
+  with_items:
+    -
+      url: "{{ vim_vundle_url }}"
+      path: "~/.vim/bundle/"
+    -
+      url: "{{ vim_powerline_fonts_url }}"
+      path: "~/.fonts/"
+  tags: vim
+
+- name: create the .vimrc file
+  template:
+    src: vimrc.j2
+    dest: "~/.vimrc"
+  tags: vim
+
+- name: create global alias to install vim plugins
+  lineinfile:
+    dest: /etc/bash.bashrc
+    line: "alias vpi='vim +PluginInstall +qall'"
+    state: present
+  tags: vim
+
