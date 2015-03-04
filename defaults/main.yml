@@ -11,5 +11,7 @@ vim_plugins:
   - scrooloose/nerdtree
   - kien/ctrlp.vim
   - tpope/vim-fugitive
+  - tpope/vim-sleuth
+  - airblade/vim-gitgutter
   - tomasr/molokai
 
