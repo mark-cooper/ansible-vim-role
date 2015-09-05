@@ -1,6 +1,7 @@
 ---
 
 - name: install vim and related packages
+  sudo: yes
   apt:
     pkg: "{{ item }}"
     state: latest
@@ -43,6 +44,7 @@
   tags: vim
 
 - name: create global alias to install vim plugins
+  sudo: yes
   lineinfile:
     dest: /etc/bash.bashrc
     line: "alias vpi='vim +PluginInstall +qall'"
