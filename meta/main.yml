@@ -1,0 +1,15 @@
+---
+
+galaxy_info:
+  author: Mark Cooper
+  description: Install VIM
+  license: MIT
+  min_ansible_version: 1.4
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  categories:
+    - development
+dependencies: []
+
