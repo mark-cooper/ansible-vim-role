@@ -1,5 +1,6 @@
 ---
 
+vim_colorscheme: solarized
 vim_vundle_url: https://github.com/gmarik/Vundle.vim.git
 vim_powerline_fonts_url: https://github.com/scotu/ubuntu-mono-powerline.git
 
