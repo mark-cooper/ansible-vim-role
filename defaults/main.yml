@@ -14,4 +14,6 @@ vim_plugins:
   - tpope/vim-sleuth
   - airblade/vim-gitgutter
   - tomasr/molokai
+  - altercation/vim-colors-solarized
+  - jlanzarotta/bufexplorer
 
