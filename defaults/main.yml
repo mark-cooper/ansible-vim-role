@@ -17,4 +17,4 @@ vim_plugins:
   - tomasr/molokai
   - altercation/vim-colors-solarized
   - jlanzarotta/bufexplorer
-
+  - terryma/vim-multiple-cursors
