@@ -11,6 +11,7 @@ vim_plugins:
   - scrooloose/syntastic
   - scrooloose/nerdtree
   - kien/ctrlp.vim
+  - tpope/vim-commentary
   - tpope/vim-fugitive
   - tpope/vim-sleuth
   - airblade/vim-gitgutter
