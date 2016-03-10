@@ -19,3 +19,5 @@ vim_plugins:
   - altercation/vim-colors-solarized
   - jlanzarotta/bufexplorer
   - terryma/vim-multiple-cursors
+  - gosukiwi/vim-atom-dark
+
