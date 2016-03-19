@@ -20,4 +20,5 @@ vim_plugins:
   - jlanzarotta/bufexplorer
   - terryma/vim-multiple-cursors
   - gosukiwi/vim-atom-dark
-
+  - rking/ag.vim
+  - skwp/greplace.vim
