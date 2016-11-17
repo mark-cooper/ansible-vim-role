@@ -4,6 +4,9 @@ vim_colorscheme: solarized
 vim_vundle_url: https://github.com/gmarik/Vundle.vim.git
 vim_powerline_fonts_url: https://github.com/scotu/ubuntu-mono-powerline.git
 
+vim_users:
+  - "{{ ansible_user_id }}"
+
 vim_plugins:
   - gmarik/Vundle.vim
   - Valloric/YouCompleteMe

@@ -1,7 +1,6 @@
 ---
 
 - name: install vim and related packages
-  sudo: yes
   apt:
     pkg: "{{ item }}"
     state: latest
@@ -15,12 +14,15 @@
 
 - name: create the vim user and fonts directory
   file:
-    path: "{{ item }}"
+    path: "{{ item[0] }}"
     state: directory
     recurse: yes
-  with_items:
-    - "~/.vim/bundle"
-    - "~/.fonts"
+  become: yes
+  become_user: "{{ item[1] }}"
+  with_nested:
+    - - "~/.vim/bundle"
+      - "~/.fonts"
+    - "{{ vim_users }}"
   tags: vim
 
 - name: download vundle and powerline fonts
@@ -28,23 +30,22 @@
     repo: "{{ vim_vundle_url }}"
     dest: "~/.vim/bundle/Vundle.vim"
     accept_hostkey: yes
-  with_items:
-    -
-      url: "{{ vim_vundle_url }}"
-      path: "~/.vim/bundle/"
-    -
-      url: "{{ vim_powerline_fonts_url }}"
-      path: "~/.fonts/"
+  become: yes
+  become_user: "{{ item }}"
+  with_items: "{{ vim_users }}"
   tags: vim
 
 - name: create the .vimrc file
   template:
     src: vimrc.j2
     dest: "~/.vimrc"
+    backup: yes
+  become: yes
+  become_user: "{{ item }}"
+  with_items: "{{ vim_users }}"
   tags: vim
 
 - name: create global alias to install vim plugins
-  sudo: yes
   lineinfile:
     dest: /etc/bash.bashrc
     line: "alias vpi='vim +PluginInstall +qall'"
